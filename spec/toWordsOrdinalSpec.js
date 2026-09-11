@@ -49,20 +49,13 @@ describe('toWordsOrdinal', function () {
         { input: '1000000', expect: 'one millionth' },
         { input: '1000000000', expect: 'one billionth' },
         { input: '1000000000000', expect: 'one trillionth' },
-        { input: '1000000000000000', expect: 'one quadrillionth' }
+        { input: '1000000000000000', expect: 'one quadrillionth' },
     ];
 
     function addTest(test) {
-        it(
-            'should, if passed "' +
-                test.input +
-                '", return "' +
-                test.expect +
-                '"',
-            function () {
-                expect(toWordsOrdinal(test.input)).toEqual(test.expect);
-            }
-        );
+        it('should, if passed "' + test.input + '", return "' + test.expect + '"', function () {
+            expect(toWordsOrdinal(test.input)).toEqual(test.expect);
+        });
     }
 
     tests.forEach(addTest);

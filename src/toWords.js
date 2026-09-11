@@ -33,7 +33,7 @@ var LESS_THAN_TWENTY = [
     'sixteen',
     'seventeen',
     'eighteen',
-    'nineteen'
+    'nineteen',
 ];
 
 var TENTHS_LESS_THAN_HUNDRED = [
@@ -46,7 +46,7 @@ var TENTHS_LESS_THAN_HUNDRED = [
     'sixty',
     'seventy',
     'eighty',
-    'ninety'
+    'ninety',
 ];
 
 /**
@@ -62,14 +62,10 @@ function toWords(number, asOrdinal) {
     var num = parseInt(number, 10);
 
     if (!isFinite(num)) {
-        throw new TypeError(
-            'Not a finite number: ' + number + ' (' + typeof number + ')'
-        );
+        throw new TypeError('Not a finite number: ' + number + ' (' + typeof number + ')');
     }
     if (!isSafeNumber(num)) {
-        throw new RangeError(
-            'Input is not a safe number, it’s either too large or too small.'
-        );
+        throw new RangeError('Input is not a safe number, it’s either too large or too small.');
     }
     words = generateWords(num);
     return asOrdinal ? makeOrdinal(words) : words;
@@ -122,9 +118,7 @@ function generateWords(number) {
         word = generateWords(Math.floor(number / ONE_TRILLION)) + ' trillion,';
     } else if (number <= MAX) {
         remainder = number % ONE_QUADRILLION;
-        word =
-            generateWords(Math.floor(number / ONE_QUADRILLION)) +
-            ' quadrillion,';
+        word = generateWords(Math.floor(number / ONE_QUADRILLION)) + ' quadrillion,';
     }
 
     words.push(word);

@@ -14,14 +14,10 @@ function toOrdinal(number) {
     var num = parseInt(number, 10);
 
     if (!isFinite(num)) {
-        throw new TypeError(
-            'Not a finite number: ' + number + ' (' + typeof number + ')'
-        );
+        throw new TypeError('Not a finite number: ' + number + ' (' + typeof number + ')');
     }
     if (!isSafeNumber(num)) {
-        throw new RangeError(
-            'Input is not a safe number, it’s either too large or too small.'
-        );
+        throw new RangeError('Input is not a safe number, it’s either too large or too small.');
     }
     var str = String(num);
     var lastTwoDigits = Math.abs(num % 100);

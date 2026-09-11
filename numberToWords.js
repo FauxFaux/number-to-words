@@ -38,8 +38,7 @@
 
     // ========== file: /src/makeOrdinal.js ==========
 
-    var ENDS_WITH_DOUBLE_ZERO_PATTERN =
-        /(hundred|thousand|(m|b|tr|quadr)illion)$/;
+    var ENDS_WITH_DOUBLE_ZERO_PATTERN = /(hundred|thousand|(m|b|tr|quadr)illion)$/;
     var ENDS_WITH_TEEN_PATTERN = /teen$/;
     var ENDS_WITH_Y_PATTERN = /y$/;
     var ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN =
@@ -57,7 +56,7 @@
         nine: 'ninth',
         ten: 'tenth',
         eleven: 'eleventh',
-        twelve: 'twelfth'
+        twelve: 'twelfth',
     };
 
     /**
@@ -68,10 +67,7 @@
      */
     function makeOrdinal(words) {
         // Ends with *00 (100, 1000, etc.) or *teen (13, 14, 15, 16, 17, 18, 19)
-        if (
-            ENDS_WITH_DOUBLE_ZERO_PATTERN.test(words) ||
-            ENDS_WITH_TEEN_PATTERN.test(words)
-        ) {
+        if (ENDS_WITH_DOUBLE_ZERO_PATTERN.test(words) || ENDS_WITH_TEEN_PATTERN.test(words)) {
             return words + 'th';
         }
         // Ends with *y (20, 30, 40, 50, 60, 70, 80, 90)
@@ -80,10 +76,7 @@
         }
         // Ends with one through twelve
         else if (ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN.test(words)) {
-            return words.replace(
-                ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN,
-                replaceWithOrdinalVariant
-            );
+            return words.replace(ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN, replaceWithOrdinalVariant);
         }
         return words;
     }
@@ -105,19 +98,14 @@
         var num = parseInt(number, 10);
 
         if (!isFinite(num)) {
-            throw new TypeError(
-                'Not a finite number: ' + number + ' (' + typeof number + ')'
-            );
+            throw new TypeError('Not a finite number: ' + number + ' (' + typeof number + ')');
         }
         if (!isSafeNumber(num)) {
-            throw new RangeError(
-                'Input is not a safe number, it’s either too large or too small.'
-            );
+            throw new RangeError('Input is not a safe number, it’s either too large or too small.');
         }
         var str = String(num);
         var lastTwoDigits = Math.abs(num % 100);
-        var betweenElevenAndThirteen =
-            lastTwoDigits >= 11 && lastTwoDigits <= 13;
+        var betweenElevenAndThirteen = lastTwoDigits >= 11 && lastTwoDigits <= 13;
         var lastChar = str.charAt(str.length - 1);
         return (
             str +
@@ -164,7 +152,7 @@
         'sixteen',
         'seventeen',
         'eighteen',
-        'nineteen'
+        'nineteen',
     ];
 
     var TENTHS_LESS_THAN_HUNDRED = [
@@ -177,7 +165,7 @@
         'sixty',
         'seventy',
         'eighty',
-        'ninety'
+        'ninety',
     ];
 
     /**
@@ -193,14 +181,10 @@
         var num = parseInt(number, 10);
 
         if (!isFinite(num)) {
-            throw new TypeError(
-                'Not a finite number: ' + number + ' (' + typeof number + ')'
-            );
+            throw new TypeError('Not a finite number: ' + number + ' (' + typeof number + ')');
         }
         if (!isSafeNumber(num)) {
-            throw new RangeError(
-                'Input is not a safe number, it’s either too large or too small.'
-            );
+            throw new RangeError('Input is not a safe number, it’s either too large or too small.');
         }
         words = generateWords(num);
         return asOrdinal ? makeOrdinal(words) : words;
@@ -241,25 +225,19 @@
             word = generateWords(Math.floor(number / ONE_HUNDRED)) + ' hundred';
         } else if (number < ONE_MILLION) {
             remainder = number % ONE_THOUSAND;
-            word =
-                generateWords(Math.floor(number / ONE_THOUSAND)) + ' thousand,';
+            word = generateWords(Math.floor(number / ONE_THOUSAND)) + ' thousand,';
         } else if (number < ONE_BILLION) {
             remainder = number % ONE_MILLION;
-            word =
-                generateWords(Math.floor(number / ONE_MILLION)) + ' million,';
+            word = generateWords(Math.floor(number / ONE_MILLION)) + ' million,';
         } else if (number < ONE_TRILLION) {
             remainder = number % ONE_BILLION;
-            word =
-                generateWords(Math.floor(number / ONE_BILLION)) + ' billion,';
+            word = generateWords(Math.floor(number / ONE_BILLION)) + ' billion,';
         } else if (number < ONE_QUADRILLION) {
             remainder = number % ONE_TRILLION;
-            word =
-                generateWords(Math.floor(number / ONE_TRILLION)) + ' trillion,';
+            word = generateWords(Math.floor(number / ONE_TRILLION)) + ' trillion,';
         } else if (number <= MAX) {
             remainder = number % ONE_QUADRILLION;
-            word =
-                generateWords(Math.floor(number / ONE_QUADRILLION)) +
-                ' quadrillion,';
+            word = generateWords(Math.floor(number / ONE_QUADRILLION)) + ' quadrillion,';
         }
 
         words.push(word);
@@ -282,7 +260,7 @@
     var numberToWords = {
         toOrdinal: toOrdinal,
         toWords: toWords,
-        toWordsOrdinal: toWordsOrdinal
+        toWordsOrdinal: toWordsOrdinal,
     };
 
     if (typeof exports != 'undefined') {

@@ -7,7 +7,7 @@ var gulpPlugins = {
     rename: require('gulp-rename'),
     replace: require('gulp-replace'),
     uglify: require('gulp-uglify'),
-    wrap: require('gulp-wrap')
+    wrap: require('gulp-wrap'),
 };
 var log = require('fancy-log');
 var license = require('uglify-save-license');
@@ -26,7 +26,7 @@ function bundleTask() {
         './src/makeOrdinal.js',
         './src/toOrdinal.js',
         './src/toWords.js',
-        './src/toWordsOrdinal.js'
+        './src/toWordsOrdinal.js',
     ];
 
     return (
@@ -40,8 +40,8 @@ function bundleTask() {
             .pipe(gulpPlugins.concat('numberToWords.js'))
             .pipe(
                 gulpPlugins.wrap({ src: 'wrapBundle.tmpl' }, pkg, {
-                    variable: 'data'
-                })
+                    variable: 'data',
+                }),
             )
             .pipe(gulp.dest('./'))
             // Minified version
@@ -52,5 +52,5 @@ function bundleTask() {
 }
 
 module.exports = {
-    build: gulp.parallel(bundleTask)
+    build: gulp.parallel(bundleTask),
 };

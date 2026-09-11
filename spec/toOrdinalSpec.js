@@ -1,9 +1,7 @@
 'use strict';
 
 var toOrdinal =
-    typeof require !== 'undefined'
-        ? require('../src/toOrdinal')
-        : window.numberToWords.toOrdinal;
+    typeof require !== 'undefined' ? require('../src/toOrdinal') : window.numberToWords.toOrdinal;
 var MAX_SAFE_INTEGER = 9007199254740991;
 
 describe('toOrdinal', function () {
@@ -30,16 +28,13 @@ describe('toOrdinal', function () {
         { input: 11, expect: '11th' },
         { input: 12, expect: '12th' },
         { input: 13, expect: '13th' },
-        { input: 121, expect: '121st' }
+        { input: 121, expect: '121st' },
     ];
 
     function addTest(test) {
-        it(
-            'should, if passed ' + test.input + ', return ' + test.expect,
-            function () {
-                expect(toOrdinal(test.input)).toEqual(test.expect);
-            }
-        );
+        it('should, if passed ' + test.input + ', return ' + test.expect, function () {
+            expect(toOrdinal(test.input)).toEqual(test.expect);
+        });
     }
 
     tests.forEach(addTest);
