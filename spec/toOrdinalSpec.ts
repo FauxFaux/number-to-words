@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import toOrdinal from '../src/toOrdinal.ts';
-const MAX_SAFE_INTEGER = 9007199254740991;
 
 describe('toOrdinal', function () {
   const tests = [
@@ -38,7 +37,7 @@ describe('toOrdinal', function () {
   tests.forEach(addTest);
 
   it('should throw a RangeError if input is greater or lesser than MAX_SAFE_INTEGER', function () {
-    const unsafe = MAX_SAFE_INTEGER + 100;
+    const unsafe = Number.MAX_SAFE_INTEGER + 100;
 
     expect(function () {
       toOrdinal(unsafe);

@@ -1,4 +1,3 @@
-import isFinite from './isFinite.ts';
 import isSafeNumber from './isSafeNumber.ts';
 
 /**
@@ -11,7 +10,7 @@ import isSafeNumber from './isSafeNumber.ts';
 function toOrdinal(number: number | string): string {
   const num = parseInt(String(number), 10);
 
-  if (!isFinite(num)) {
+  if (!Number.isFinite(num)) {
     throw new TypeError('Not a finite number: ' + number + ' (' + typeof number + ')');
   }
   if (!isSafeNumber(num)) {

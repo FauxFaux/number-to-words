@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest';
-const MAX_SAFE_INTEGER = 9007199254740991;
 import toWords from '../src/toWords.ts';
 
 describe('toWords', function () {
@@ -108,7 +107,7 @@ describe('toWords', function () {
         'five quadrillion, five hundred fifty-five trillion, five hundred fifty-five billion, five hundred fifty-five million, five hundred fifty-five thousand, five hundred fifty-five',
     },
     {
-      input: MAX_SAFE_INTEGER,
+      input: Number.MAX_SAFE_INTEGER,
       expect:
         'nine quadrillion, seven trillion, one hundred ninety-nine billion, two hundred fifty-four million, seven hundred forty thousand, nine hundred ninety-one',
     },
@@ -123,7 +122,7 @@ describe('toWords', function () {
   tests.forEach(addTest);
 
   it('should throw a RangeError if input is greater or lesser than MAX_SAFE_INTEGER', function () {
-    const unsafe = MAX_SAFE_INTEGER + 100;
+    const unsafe = Number.MAX_SAFE_INTEGER + 100;
 
     expect(function () {
       toWords(unsafe);

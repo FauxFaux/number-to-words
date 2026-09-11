@@ -1,17 +1,16 @@
 import { describe, expect, it } from 'vitest';
-import MAX_SAFE_INTEGER from '../src/maxSafeInteger.ts';
 import isSafeNumber from '../src/isSafeNumber.ts';
 
 describe('isSafeNumber', function () {
   it('should return true if input is a number between -MAX_SAFE_INTEGER and MAX_SAFE_INTEGER (including)', function () {
-    expect(isSafeNumber(-MAX_SAFE_INTEGER)).toBe(true);
+    expect(isSafeNumber(-Number.MAX_SAFE_INTEGER)).toBe(true);
     expect(isSafeNumber(-1)).toBe(true);
     expect(isSafeNumber(0)).toBe(true);
     expect(isSafeNumber(1)).toBe(true);
-    expect(isSafeNumber(MAX_SAFE_INTEGER)).toBe(true);
+    expect(isSafeNumber(Number.MAX_SAFE_INTEGER)).toBe(true);
   });
   it('should return false if input is too large or too small', function () {
-    const unsafe = MAX_SAFE_INTEGER + 100;
+    const unsafe = Number.MAX_SAFE_INTEGER + 100;
 
     expect(isSafeNumber(unsafe)).toBe(false);
     expect(isSafeNumber(-unsafe)).toBe(false);

@@ -1,4 +1,3 @@
-import isFinite from './isFinite.ts';
 import isSafeNumber from './isSafeNumber.ts';
 
 const TEN = 10;
@@ -57,7 +56,7 @@ function toWords(number: number | string): string {
   let words: string;
   const num = parseInt(String(number), 10);
 
-  if (!isFinite(num)) {
+  if (!Number.isFinite(num)) {
     throw new TypeError('Not a finite number: ' + number + ' (' + typeof number + ')');
   }
   if (!isSafeNumber(num)) {
