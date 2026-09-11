@@ -20,18 +20,14 @@
         "gulp-replace": "1.0.0",
         "gulp-uglify": "3.0.1",
         "gulp-wrap": "0.14.0",
-        "http-server": "0.11.1",
-        "jasmine": "3.2.0",
-        "phantomjs-prebuilt": "2.1.16",
-        "uglify-save-license": "0.4.1"
+        "uglify-save-license": "0.4.1",
+        "vitest": "5.0.0"
     },
     "scripts": {
         "build": "gulp build",
         "lint": "node node_modules/eslint/bin/eslint.js .",
         "test": "npm run lint && npm run test:node",
-        "test:node": "jasmine",
-        "test:phantom": "phantomjs ./spec/phantom/run-jasmine3.js 'http://localhost:3456/spec/'",
-        "test:server": "http-server ./ -p 3456 -c-1"
+        "test:node": "vitest run"
     },
     "repository": {
         "type": "git",
