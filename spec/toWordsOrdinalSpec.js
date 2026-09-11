@@ -1,9 +1,6 @@
 'use strict';
 
-const toWordsOrdinal =
-  typeof require !== 'undefined'
-    ? require('../src/toWordsOrdinal')
-    : window.numberToWords.toWordsOrdinal;
+const toWordsOrdinal = require('../src/toWordsOrdinal');
 
 describe('toWordsOrdinal', function () {
   const tests = [

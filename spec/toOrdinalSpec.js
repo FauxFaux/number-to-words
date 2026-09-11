@@ -1,7 +1,6 @@
 'use strict';
 
-const toOrdinal =
-  typeof require !== 'undefined' ? require('../src/toOrdinal') : window.numberToWords.toOrdinal;
+const toOrdinal = require('../src/toOrdinal');
 const MAX_SAFE_INTEGER = 9007199254740991;
 
 describe('toOrdinal', function () {

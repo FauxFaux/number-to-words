@@ -1,6 +1,6 @@
 'use strict';
 
-const index = typeof require !== 'undefined' ? require('../src') : window.numberToWords;
+const index = require('../src');
 
 describe('index', function () {
   it('should expose a toOrdinal method', function () {
