@@ -112,7 +112,7 @@ describe('toWords', function () {
             'should, if passed ' + formatNumber(test.input) + ', return ' + test.expect,
             function () {
                 expect(toWords(test.input)).toEqual(test.expect);
-            },
+            }
         );
     }
 
