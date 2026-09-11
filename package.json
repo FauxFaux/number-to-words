@@ -19,16 +19,19 @@
   "main": "./dist/index.js",
   "scripts": {
     "prepare": "tsc",
+    "lint": "eslint .",
     "typecheck": "tsc --project tsconfig.check.json",
-    "test": "npm run test:node",
-    "test:node": "vitest run",
+    "test": "vitest run",
     "format": "oxfmt ."
   },
   "devDependencies": {
+    "@eslint/js": "^10",
     "@tsconfig/node24": "^24",
     "@types/node": "^24",
+    "eslint": "^10",
     "oxfmt": "^0.67",
     "typescript": "~6.0",
+    "typescript-eslint": "^8",
     "vitest": "^5"
   }
 }

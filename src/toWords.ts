@@ -51,7 +51,6 @@ const TENTHS_LESS_THAN_HUNDRED = [
  * @example toWords(12) => 'twelve'
  */
 export function toWords(number: number | string): string {
-  let words: string;
   const num = parseInt(String(number), 10);
 
   if (!Number.isFinite(num)) {
@@ -60,8 +59,7 @@ export function toWords(number: number | string): string {
   if (!isSafeNumber(num)) {
     throw new RangeError('Input is not a safe number, it’s either too large or too small.');
   }
-  words = generateWords(num);
-  return words;
+  return generateWords(num);
 }
 
 function generateWords(number: number, words?: string[]): string {
