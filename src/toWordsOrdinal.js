@@ -10,8 +10,8 @@ const toWords = require('./toWords');
  * @returns {string}
  */
 function toWordsOrdinal(number) {
-    const words = toWords(number);
-    return makeOrdinal(words);
+  const words = toWords(number);
+  return makeOrdinal(words);
 }
 
 module.exports = toWordsOrdinal;
