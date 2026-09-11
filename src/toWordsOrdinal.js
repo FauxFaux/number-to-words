@@ -1,7 +1,7 @@
 'use strict';
 
-var makeOrdinal = require('./makeOrdinal');
-var toWords = require('./toWords');
+const makeOrdinal = require('./makeOrdinal');
+const toWords = require('./toWords');
 
 /**
  * Converts a number into ordinal words.
@@ -10,7 +10,7 @@ var toWords = require('./toWords');
  * @returns {string}
  */
 function toWordsOrdinal(number) {
-    var words = toWords(number);
+    const words = toWords(number);
     return makeOrdinal(words);
 }
 

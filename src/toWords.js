@@ -1,19 +1,19 @@
 'use strict';
 
-var makeOrdinal = require('./makeOrdinal');
-var isFinite = require('./isFinite');
-var isSafeNumber = require('./isSafeNumber');
+const makeOrdinal = require('./makeOrdinal');
+const isFinite = require('./isFinite');
+const isSafeNumber = require('./isSafeNumber');
 
-var TEN = 10;
-var ONE_HUNDRED = 100;
-var ONE_THOUSAND = 1000;
-var ONE_MILLION = 1000000;
-var ONE_BILLION = 1000000000; //         1.000.000.000 (9)
-var ONE_TRILLION = 1000000000000; //     1.000.000.000.000 (12)
-var ONE_QUADRILLION = 1000000000000000; // 1.000.000.000.000.000 (15)
-var MAX = 9007199254740992; // 9.007.199.254.740.992 (15)
+const TEN = 10;
+const ONE_HUNDRED = 100;
+const ONE_THOUSAND = 1000;
+const ONE_MILLION = 1000000;
+const ONE_BILLION = 1000000000; //         1.000.000.000 (9)
+const ONE_TRILLION = 1000000000000; //     1.000.000.000.000 (12)
+const ONE_QUADRILLION = 1000000000000000; // 1.000.000.000.000.000 (15)
+const MAX = 9007199254740992; // 9.007.199.254.740.992 (15)
 
-var LESS_THAN_TWENTY = [
+const LESS_THAN_TWENTY = [
     'zero',
     'one',
     'two',
@@ -33,10 +33,10 @@ var LESS_THAN_TWENTY = [
     'sixteen',
     'seventeen',
     'eighteen',
-    'nineteen',
+    'nineteen'
 ];
 
-var TENTHS_LESS_THAN_HUNDRED = [
+const TENTHS_LESS_THAN_HUNDRED = [
     'zero',
     'ten',
     'twenty',
@@ -46,7 +46,7 @@ var TENTHS_LESS_THAN_HUNDRED = [
     'sixty',
     'seventy',
     'eighty',
-    'ninety',
+    'ninety'
 ];
 
 /**
@@ -58,8 +58,8 @@ var TENTHS_LESS_THAN_HUNDRED = [
  * @returns {string}
  */
 function toWords(number, asOrdinal) {
-    var words;
-    var num = parseInt(number, 10);
+    let words;
+    const num = parseInt(number, 10);
 
     if (!isFinite(num)) {
         throw new TypeError('Not a finite number: ' + number + ' (' + typeof number + ')');
@@ -72,7 +72,7 @@ function toWords(number, asOrdinal) {
 }
 
 function generateWords(number) {
-    var remainder,
+    let remainder,
         word,
         words = arguments[1];
 

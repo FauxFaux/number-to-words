@@ -1,11 +1,11 @@
 'use strict';
 
-var toOrdinal =
+const toOrdinal =
     typeof require !== 'undefined' ? require('../src/toOrdinal') : window.numberToWords.toOrdinal;
-var MAX_SAFE_INTEGER = 9007199254740991;
+const MAX_SAFE_INTEGER = 9007199254740991;
 
 describe('toOrdinal', function () {
-    var tests = [
+    const tests = [
         { input: -121, expect: '-121st' },
         { input: -13, expect: '-13th' },
         { input: -12, expect: '-12th' },
@@ -28,7 +28,7 @@ describe('toOrdinal', function () {
         { input: 11, expect: '11th' },
         { input: 12, expect: '12th' },
         { input: 13, expect: '13th' },
-        { input: 121, expect: '121st' },
+        { input: 121, expect: '121st' }
     ];
 
     function addTest(test) {
@@ -40,7 +40,7 @@ describe('toOrdinal', function () {
     tests.forEach(addTest);
 
     it('should throw a RangeError if input is greater or lesser than MAX_SAFE_INTEGER', function () {
-        var unsafe = MAX_SAFE_INTEGER + 100;
+        const unsafe = MAX_SAFE_INTEGER + 100;
 
         expect(function () {
             toOrdinal(unsafe);

@@ -1,11 +1,11 @@
 'use strict';
 
-var ENDS_WITH_DOUBLE_ZERO_PATTERN = /(hundred|thousand|(m|b|tr|quadr)illion)$/;
-var ENDS_WITH_TEEN_PATTERN = /teen$/;
-var ENDS_WITH_Y_PATTERN = /y$/;
-var ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN =
+const ENDS_WITH_DOUBLE_ZERO_PATTERN = /(hundred|thousand|(m|b|tr|quadr)illion)$/;
+const ENDS_WITH_TEEN_PATTERN = /teen$/;
+const ENDS_WITH_Y_PATTERN = /y$/;
+const ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN =
     /(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)$/;
-var ordinalLessThanThirteen = {
+const ordinalLessThanThirteen = {
     zero: 'zeroth',
     one: 'first',
     two: 'second',
@@ -18,7 +18,7 @@ var ordinalLessThanThirteen = {
     nine: 'ninth',
     ten: 'tenth',
     eleven: 'eleventh',
-    twelve: 'twelfth',
+    twelve: 'twelfth'
 };
 
 /**

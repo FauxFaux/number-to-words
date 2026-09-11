@@ -1,7 +1,7 @@
 'use strict';
 
-var isFinite = require('./isFinite');
-var isSafeNumber = require('./isSafeNumber');
+const isFinite = require('./isFinite');
+const isSafeNumber = require('./isSafeNumber');
 
 /**
  * Converts an integer into a string with an ordinal postfix.
@@ -11,7 +11,7 @@ var isSafeNumber = require('./isSafeNumber');
  * @returns {string}
  */
 function toOrdinal(number) {
-    var num = parseInt(number, 10);
+    const num = parseInt(number, 10);
 
     if (!isFinite(num)) {
         throw new TypeError('Not a finite number: ' + number + ' (' + typeof number + ')');
@@ -19,10 +19,10 @@ function toOrdinal(number) {
     if (!isSafeNumber(num)) {
         throw new RangeError('Input is not a safe number, it’s either too large or too small.');
     }
-    var str = String(num);
-    var lastTwoDigits = Math.abs(num % 100);
-    var betweenElevenAndThirteen = lastTwoDigits >= 11 && lastTwoDigits <= 13;
-    var lastChar = str.charAt(str.length - 1);
+    const str = String(num);
+    const lastTwoDigits = Math.abs(num % 100);
+    const betweenElevenAndThirteen = lastTwoDigits >= 11 && lastTwoDigits <= 13;
+    const lastChar = str.charAt(str.length - 1);
     return (
         str +
         (betweenElevenAndThirteen

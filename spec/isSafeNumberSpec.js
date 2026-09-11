@@ -1,7 +1,7 @@
 'use strict';
 
-var MAX_SAFE_INTEGER = require('../src/maxSafeInteger');
-var isSafeNumber = require('../src/isSafeNumber');
+const MAX_SAFE_INTEGER = require('../src/maxSafeInteger');
+const isSafeNumber = require('../src/isSafeNumber');
 
 describe('isSafeNumber', function () {
     it('should return true if input is a number between -MAX_SAFE_INTEGER and MAX_SAFE_INTEGER (including)', function () {
@@ -12,7 +12,7 @@ describe('isSafeNumber', function () {
         expect(isSafeNumber(MAX_SAFE_INTEGER)).toBe(true);
     });
     it('should return false if input is too large or too small', function () {
-        var unsafe = MAX_SAFE_INTEGER + 100;
+        const unsafe = MAX_SAFE_INTEGER + 100;
 
         expect(isSafeNumber(unsafe)).toBe(false);
         expect(isSafeNumber(-unsafe)).toBe(false);

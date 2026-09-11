@@ -1,12 +1,12 @@
 'use strict';
 
-var toWordsOrdinal =
+const toWordsOrdinal =
     typeof require !== 'undefined'
         ? require('../src/toWordsOrdinal')
         : window.numberToWords.toWordsOrdinal;
 
 describe('toWordsOrdinal', function () {
-    var tests = [
+    const tests = [
         { input: '0', expect: 'zeroth' },
         { input: '1', expect: 'first' },
         { input: '2', expect: 'second' },
@@ -49,7 +49,7 @@ describe('toWordsOrdinal', function () {
         { input: '1000000', expect: 'one millionth' },
         { input: '1000000000', expect: 'one billionth' },
         { input: '1000000000000', expect: 'one trillionth' },
-        { input: '1000000000000000', expect: 'one quadrillionth' },
+        { input: '1000000000000000', expect: 'one quadrillionth' }
     ];
 
     function addTest(test) {
