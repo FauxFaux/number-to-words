@@ -20,6 +20,7 @@
         "gulp-replace": "1.0.0",
         "gulp-uglify": "3.0.1",
         "gulp-wrap": "0.14.0",
+        "prettier": "~3.9",
         "uglify-save-license": "0.4.1",
         "vitest": "5.0.0"
     },
@@ -27,7 +28,8 @@
         "build": "gulp build",
         "lint": "node node_modules/eslint/bin/eslint.js .",
         "test": "npm run lint && npm run test:node",
-        "test:node": "vitest run"
+        "test:node": "vitest run",
+        "format": "prettier --write ."
     },
     "repository": {
         "type": "git",

@@ -1,6 +1,9 @@
 'use strict';
 
-var toWordsOrdinal = typeof require !== 'undefined' ? require('../src/toWordsOrdinal') : window.numberToWords.toWordsOrdinal;
+var toWordsOrdinal =
+    typeof require !== 'undefined'
+        ? require('../src/toWordsOrdinal')
+        : window.numberToWords.toWordsOrdinal;
 
 describe('toWordsOrdinal', function () {
     var tests = [
@@ -50,9 +53,16 @@ describe('toWordsOrdinal', function () {
     ];
 
     function addTest(test) {
-        it('should, if passed "' + test.input + '", return "' + test.expect + '"', function () {
-            expect(toWordsOrdinal(test.input)).toEqual(test.expect);
-        });
+        it(
+            'should, if passed "' +
+                test.input +
+                '", return "' +
+                test.expect +
+                '"',
+            function () {
+                expect(toWordsOrdinal(test.input)).toEqual(test.expect);
+            }
+        );
     }
 
     tests.forEach(addTest);

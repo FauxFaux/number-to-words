@@ -1,6 +1,9 @@
 'use strict';
 
-var toOrdinal = typeof require !== 'undefined' ? require('../src/toOrdinal') : window.numberToWords.toOrdinal;
+var toOrdinal =
+    typeof require !== 'undefined'
+        ? require('../src/toOrdinal')
+        : window.numberToWords.toOrdinal;
 var MAX_SAFE_INTEGER = 9007199254740991;
 
 describe('toOrdinal', function () {
@@ -31,21 +34,24 @@ describe('toOrdinal', function () {
     ];
 
     function addTest(test) {
-        it('should, if passed ' + test.input + ', return ' + test.expect, function () {
-            expect(toOrdinal(test.input)).toEqual(test.expect);
-        });
+        it(
+            'should, if passed ' + test.input + ', return ' + test.expect,
+            function () {
+                expect(toOrdinal(test.input)).toEqual(test.expect);
+            }
+        );
     }
 
     tests.forEach(addTest);
 
-    it('should throw a RangeError if input is greater or lesser than MAX_SAFE_INTEGER', function() {
+    it('should throw a RangeError if input is greater or lesser than MAX_SAFE_INTEGER', function () {
         var unsafe = MAX_SAFE_INTEGER + 100;
 
-        expect(function() {
+        expect(function () {
             toOrdinal(unsafe);
         }).toThrowError(/Input is not a safe number/);
 
-        expect(function() {
+        expect(function () {
             toOrdinal(-unsafe);
         }).toThrowError(/Input is not a safe number/);
     });

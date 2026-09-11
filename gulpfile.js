@@ -29,19 +29,26 @@ function bundleTask() {
         './src/toWordsOrdinal.js'
     ];
 
-    return gulp.src(files)
-        .on('error', log.error)
-        .pipe(gulpPlugins.wrap({ src: 'wrapEach.tmpl' }))
-        .pipe(gulpPlugins.replace(USE_STRICT_PATTERN, ''))
-        .pipe(gulpPlugins.replace(REQUIRE_PATTERN, ''))
-        .pipe(gulpPlugins.replace(EXPORT_PATTERN, ''))
-        .pipe(gulpPlugins.concat('numberToWords.js'))
-        .pipe(gulpPlugins.wrap({ src: 'wrapBundle.tmpl' }, pkg, { variable: 'data' }))
-        .pipe(gulp.dest('./'))
-        // Minified version
-        .pipe(gulpPlugins.uglify({ output: { comments: license } }))
-        .pipe(gulpPlugins.rename('numberToWords.min.js'))
-        .pipe(gulp.dest('./'));
+    return (
+        gulp
+            .src(files)
+            .on('error', log.error)
+            .pipe(gulpPlugins.wrap({ src: 'wrapEach.tmpl' }))
+            .pipe(gulpPlugins.replace(USE_STRICT_PATTERN, ''))
+            .pipe(gulpPlugins.replace(REQUIRE_PATTERN, ''))
+            .pipe(gulpPlugins.replace(EXPORT_PATTERN, ''))
+            .pipe(gulpPlugins.concat('numberToWords.js'))
+            .pipe(
+                gulpPlugins.wrap({ src: 'wrapBundle.tmpl' }, pkg, {
+                    variable: 'data'
+                })
+            )
+            .pipe(gulp.dest('./'))
+            // Minified version
+            .pipe(gulpPlugins.uglify({ output: { comments: license } }))
+            .pipe(gulpPlugins.rename('numberToWords.min.js'))
+            .pipe(gulp.dest('./'))
+    );
 }
 
 module.exports = {

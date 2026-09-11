@@ -1,7 +1,10 @@
 'use strict';
 
 var MAX_SAFE_INTEGER = 9007199254740991;
-var toWords = typeof require !== 'undefined' ? require('../src/toWords') : window.numberToWords.toWords;
+var toWords =
+    typeof require !== 'undefined'
+        ? require('../src/toWords')
+        : window.numberToWords.toWords;
 
 describe('toWords', function () {
     var tests = [
@@ -41,13 +44,25 @@ describe('toWords', function () {
         { input: 1000, expect: 'one thousand' },
         { input: 2222, expect: 'two thousand, two hundred twenty-two' },
         { input: 10000, expect: 'ten thousand' },
-        { input: 33333, expect: 'thirty-three thousand, three hundred thirty-three' },
+        {
+            input: 33333,
+            expect: 'thirty-three thousand, three hundred thirty-three'
+        },
         { input: 100000, expect: 'one hundred thousand' },
-        { input: 444444, expect: 'four hundred forty-four thousand, four hundred forty-four' },
+        {
+            input: 444444,
+            expect: 'four hundred forty-four thousand, four hundred forty-four'
+        },
         { input: 1000000, expect: 'one million' },
-        { input: 5555555, expect: 'five million, five hundred fifty-five thousand, five hundred fifty-five' },
+        {
+            input: 5555555,
+            expect: 'five million, five hundred fifty-five thousand, five hundred fifty-five'
+        },
         { input: 10000000, expect: 'ten million' },
-        { input: 66666666, expect: 'sixty-six million, six hundred sixty-six thousand, six hundred sixty-six' },
+        {
+            input: 66666666,
+            expect: 'sixty-six million, six hundred sixty-six thousand, six hundred sixty-six'
+        },
         { input: 100000000, expect: 'one hundred million' },
         {
             input: 777777777,
@@ -95,9 +110,15 @@ describe('toWords', function () {
     ];
 
     function addTest(test) {
-        it('should, if passed ' + formatNumber(test.input) + ', return ' + test.expect, function () {
-            expect(toWords(test.input)).toEqual(test.expect);
-        });
+        it(
+            'should, if passed ' +
+                formatNumber(test.input) +
+                ', return ' +
+                test.expect,
+            function () {
+                expect(toWords(test.input)).toEqual(test.expect);
+            }
+        );
     }
 
     tests.forEach(addTest);
@@ -112,25 +133,29 @@ describe('toWords', function () {
         expect(toWords(30, true)).toEqual('thirtieth');
         expect(toWords(123, true)).toEqual('one hundred twenty-third');
     });
-    
-    it('should throw a RangeError if input is greater or lesser than MAX_SAFE_INTEGER', function() {
+
+    it('should throw a RangeError if input is greater or lesser than MAX_SAFE_INTEGER', function () {
         var unsafe = MAX_SAFE_INTEGER + 100;
 
-        expect(function() {
+        expect(function () {
             toWords(unsafe);
         }).toThrowError(/Input is not a safe number/);
 
-        expect(function() {
+        expect(function () {
             toWords(-unsafe);
         }).toThrowError(/Input is not a safe number/);
     });
 });
 
 function formatNumber(number) {
-    var result = String(number).split('').reverse().map(function (num, index) {
-        if (index % 3 === 2) return '.' + num;
-        return num;
-    }).reverse();
+    var result = String(number)
+        .split('')
+        .reverse()
+        .map(function (num, index) {
+            if (index % 3 === 2) return '.' + num;
+            return num;
+        })
+        .reverse();
     var length = result.length;
     return result.join('') + ' (' + length + ')';
 }

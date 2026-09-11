@@ -27,11 +27,18 @@ function toOrdinal(number) {
     var lastTwoDigits = Math.abs(num % 100);
     var betweenElevenAndThirteen = lastTwoDigits >= 11 && lastTwoDigits <= 13;
     var lastChar = str.charAt(str.length - 1);
-    return str + (betweenElevenAndThirteen ? 'th'
-            : lastChar === '1' ? 'st'
-            : lastChar === '2' ? 'nd'
-            : lastChar === '3' ? 'rd'
-            : 'th');
+    return (
+        str +
+        (betweenElevenAndThirteen
+            ? 'th'
+            : lastChar === '1'
+              ? 'st'
+              : lastChar === '2'
+                ? 'nd'
+                : lastChar === '3'
+                  ? 'rd'
+                  : 'th')
+    );
 }
 
 module.exports = toOrdinal;
