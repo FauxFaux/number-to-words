@@ -1,30 +1,19 @@
 {
-  "name": "number-to-words",
-  "version": "1.2.4",
+  "name": "ts-number-to-words",
+  "version": "2.0.0",
   "description": "Contains some util methods for converting numbers into words, ordinal words and ordinal numbers.",
-  "keywords": [
-    "converter",
-    "number",
-    "ordinal",
-    "string",
-    "tool",
-    "word"
-  ],
-  "homepage": "https://github.com/marlun78/number-to-words",
-  "bugs": {
-    "url": "https://github.com/marlun78/number-to-words/issues"
-  },
   "license": "MIT",
-  "author": "Martin Eneqvist (https://github.com/marlun78)",
+  "author": "Chris West (Faux)",
   "contributors": [
     "Aleksey Pilyugin (https://github.com/pilyugin)",
     "Jeremiah Hall (https://github.com/jeremiahrhall)",
     "Adriano Melo (https://github.com/adrianomelo)",
-    "dmrzn (https://github.com/dmrzn)"
+    "dmrzn (https://github.com/dmrzn)",
+    "Chris West (https://github.com/FauxFaux)"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/marlun78/number-to-words"
+    "url": "https://github.com/FauxFaux/number-to-words"
   },
   "type": "module",
   "main": "./dist/index.js",
@@ -38,7 +27,6 @@
   "devDependencies": {
     "@tsconfig/node24": "^24",
     "@types/node": "^24",
-    "@types/number-to-words": "^1",
     "oxfmt": "^0.67",
     "typescript": "~6.0",
     "vitest": "^5"
