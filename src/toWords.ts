@@ -1,6 +1,6 @@
-import makeOrdinal from './makeOrdinal.js';
-import isFinite from './isFinite.js';
-import isSafeNumber from './isSafeNumber.js';
+import makeOrdinal from './makeOrdinal.ts';
+import isFinite from './isFinite.ts';
+import isSafeNumber from './isSafeNumber.ts';
 
 const TEN = 10;
 const ONE_HUNDRED = 100;
@@ -55,9 +55,9 @@ const TENTHS_LESS_THAN_HUNDRED = [
  * @param {boolean} [asOrdinal] - Deprecated, use toWordsOrdinal() instead!
  * @returns {string}
  */
-function toWords(number, asOrdinal) {
-  let words;
-  const num = parseInt(number, 10);
+function toWords(number: number | string, asOrdinal?: boolean): string {
+  let words: string;
+  const num = parseInt(String(number), 10);
 
   if (!isFinite(num)) {
     throw new TypeError('Not a finite number: ' + number + ' (' + typeof number + ')');
@@ -69,10 +69,9 @@ function toWords(number, asOrdinal) {
   return asOrdinal ? makeOrdinal(words) : words;
 }
 
-function generateWords(number) {
-  let remainder,
-    word,
-    words = arguments[1];
+function generateWords(number: number, words?: string[]): string {
+  let remainder = 0;
+  let word = '';
 
   // We’re done
   if (number === 0) {

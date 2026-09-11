@@ -3,7 +3,7 @@ const ENDS_WITH_TEEN_PATTERN = /teen$/;
 const ENDS_WITH_Y_PATTERN = /y$/;
 const ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN =
   /(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)$/;
-const ordinalLessThanThirteen = {
+const ordinalLessThanThirteen: Record<string, string> = {
   zero: 'zeroth',
   one: 'first',
   two: 'second',
@@ -25,7 +25,7 @@ const ordinalLessThanThirteen = {
  * @param {string} words
  * @returns {string}
  */
-function makeOrdinal(words) {
+function makeOrdinal(words: string): string {
   // Ends with *00 (100, 1000, etc.) or *teen (13, 14, 15, 16, 17, 18, 19)
   if (ENDS_WITH_DOUBLE_ZERO_PATTERN.test(words) || ENDS_WITH_TEEN_PATTERN.test(words)) {
     return words + 'th';
@@ -41,8 +41,8 @@ function makeOrdinal(words) {
   return words;
 }
 
-function replaceWithOrdinalVariant(match, numberWord) {
-  return ordinalLessThanThirteen[numberWord];
+function replaceWithOrdinalVariant(match: string, numberWord: string): string {
+  return ordinalLessThanThirteen[numberWord] ?? match;
 }
 
 export default makeOrdinal;

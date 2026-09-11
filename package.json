@@ -27,15 +27,20 @@
     "url": "https://github.com/marlun78/number-to-words"
   },
   "type": "module",
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
   "scripts": {
+    "prepare": "tsc",
+    "typecheck": "tsc --project tsconfig.check.json",
     "test": "npm run test:node",
     "test:node": "vitest run",
     "format": "oxfmt ."
   },
   "devDependencies": {
-    "@types/number-to-words": "^1.2.3",
+    "@tsconfig/node24": "^24",
+    "@types/node": "^24",
+    "@types/number-to-words": "^1",
     "oxfmt": "^0.67",
-    "vitest": "5.0.0"
+    "typescript": "~6.0",
+    "vitest": "^5"
   }
 }

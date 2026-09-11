@@ -1,5 +1,6 @@
+import { describe, expect, it } from 'vitest';
 const MAX_SAFE_INTEGER = 9007199254740991;
-import toWords from '../src/toWords.js';
+import toWords from '../src/toWords.ts';
 
 describe('toWords', function () {
   const tests = [
@@ -113,7 +114,7 @@ describe('toWords', function () {
     },
   ];
 
-  function addTest(test) {
+  function addTest(test: (typeof tests)[number]) {
     it('should, if passed ' + formatNumber(test.input) + ', return ' + test.expect, function () {
       expect(toWords(test.input)).toEqual(test.expect);
     });
@@ -145,11 +146,11 @@ describe('toWords', function () {
   });
 });
 
-function formatNumber(number) {
+function formatNumber(number: number): string {
   const result = String(number)
     .split('')
     .reverse()
-    .map(function (num, index) {
+    .map(function (num: string, index: number) {
       if (index % 3 === 2) return '.' + num;
       return num;
     })

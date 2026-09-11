@@ -1,4 +1,5 @@
-import toWordsOrdinal from '../src/toWordsOrdinal.js';
+import { describe, expect, it } from 'vitest';
+import toWordsOrdinal from '../src/toWordsOrdinal.ts';
 
 describe('toWordsOrdinal', function () {
   const tests = [
@@ -47,7 +48,7 @@ describe('toWordsOrdinal', function () {
     { input: '1000000000000000', expect: 'one quadrillionth' },
   ];
 
-  function addTest(test) {
+  function addTest(test: (typeof tests)[number]) {
     it('should, if passed "' + test.input + '", return "' + test.expect + '"', function () {
       expect(toWordsOrdinal(test.input)).toEqual(test.expect);
     });

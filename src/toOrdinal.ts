@@ -1,5 +1,5 @@
-import isFinite from './isFinite.js';
-import isSafeNumber from './isSafeNumber.js';
+import isFinite from './isFinite.ts';
+import isSafeNumber from './isSafeNumber.ts';
 
 /**
  * Converts an integer into a string with an ordinal postfix.
@@ -8,8 +8,8 @@ import isSafeNumber from './isSafeNumber.js';
  * @param {number|string} number
  * @returns {string}
  */
-function toOrdinal(number) {
-  const num = parseInt(number, 10);
+function toOrdinal(number: number | string): string {
+  const num = parseInt(String(number), 10);
 
   if (!isFinite(num)) {
     throw new TypeError('Not a finite number: ' + number + ' (' + typeof number + ')');

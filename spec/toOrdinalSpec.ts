@@ -1,4 +1,5 @@
-import toOrdinal from '../src/toOrdinal.js';
+import { describe, expect, it } from 'vitest';
+import toOrdinal from '../src/toOrdinal.ts';
 const MAX_SAFE_INTEGER = 9007199254740991;
 
 describe('toOrdinal', function () {
@@ -28,7 +29,7 @@ describe('toOrdinal', function () {
     { input: 121, expect: '121st' },
   ];
 
-  function addTest(test) {
+  function addTest(test: (typeof tests)[number]) {
     it('should, if passed ' + test.input + ', return ' + test.expect, function () {
       expect(toOrdinal(test.input)).toEqual(test.expect);
     });

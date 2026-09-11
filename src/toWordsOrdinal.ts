@@ -1,5 +1,5 @@
-import makeOrdinal from './makeOrdinal.js';
-import toWords from './toWords.js';
+import makeOrdinal from './makeOrdinal.ts';
+import toWords from './toWords.ts';
 
 /**
  * Converts a number into ordinal words.
@@ -7,7 +7,7 @@ import toWords from './toWords.js';
  * @param {number|string} number
  * @returns {string}
  */
-function toWordsOrdinal(number) {
+function toWordsOrdinal(number: number | string): string {
   const words = toWords(number);
   return makeOrdinal(words);
 }

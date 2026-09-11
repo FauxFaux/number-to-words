@@ -1,5 +1,6 @@
-import MAX_SAFE_INTEGER from '../src/maxSafeInteger.js';
-import isSafeNumber from '../src/isSafeNumber.js';
+import { describe, expect, it } from 'vitest';
+import MAX_SAFE_INTEGER from '../src/maxSafeInteger.ts';
+import isSafeNumber from '../src/isSafeNumber.ts';
 
 describe('isSafeNumber', function () {
   it('should return true if input is a number between -MAX_SAFE_INTEGER and MAX_SAFE_INTEGER (including)', function () {

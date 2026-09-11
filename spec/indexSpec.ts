@@ -1,4 +1,5 @@
-import * as index from '../src/index.js';
+import { describe, expect, it } from 'vitest';
+import * as index from '../src/index.ts';
 
 describe('index', function () {
   it('should expose a toOrdinal method', function () {
