@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import toWords from '../src/toWords.ts';
+import { toWords } from '../src/toWords.ts';
 
 describe('toWords', function () {
   const tests = [

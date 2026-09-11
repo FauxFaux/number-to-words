@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import toWordsOrdinal from '../src/toWordsOrdinal.ts';
+import { toWordsOrdinal } from '../src/toWordsOrdinal.ts';
 
 describe('toWordsOrdinal', function () {
   const tests = [

@@ -1,3 +1,3 @@
-export { default as toOrdinal } from './toOrdinal.ts';
-export { default as toWords } from './toWords.ts';
-export { default as toWordsOrdinal } from './toWordsOrdinal.ts';
+export { toOrdinal } from './toOrdinal.ts';
+export { toWords } from './toWords.ts';
+export { toWordsOrdinal } from './toWordsOrdinal.ts';

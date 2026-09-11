@@ -1,13 +1,11 @@
-import isSafeNumber from './isSafeNumber.ts';
+import { isSafeNumber } from './isSafeNumber.ts';
 
 /**
  * Converts an integer into a string with an ordinal postfix.
  * If number is decimal, the decimals will be removed.
  * @example toOrdinal(12) => '12th'
- * @param {number|string} number
- * @returns {string}
  */
-function toOrdinal(number: number | string): string {
+export function toOrdinal(number: number | string): string {
   const num = parseInt(String(number), 10);
 
   if (!Number.isFinite(num)) {
@@ -33,5 +31,3 @@ function toOrdinal(number: number | string): string {
             : 'th')
   );
 }
-
-export default toOrdinal;

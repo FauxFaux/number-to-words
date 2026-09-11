@@ -1,4 +1,4 @@
-import isSafeNumber from './isSafeNumber.ts';
+import { isSafeNumber } from './isSafeNumber.ts';
 
 const TEN = 10;
 const ONE_HUNDRED = 100;
@@ -49,10 +49,8 @@ const TENTHS_LESS_THAN_HUNDRED = [
  * Converts an integer into words.
  * If number is decimal, the decimals will be removed.
  * @example toWords(12) => 'twelve'
- * @param {number|string} number
- * @returns {string}
  */
-function toWords(number: number | string): string {
+export function toWords(number: number | string): string {
   let words: string;
   const num = parseInt(String(number), 10);
 
@@ -118,5 +116,3 @@ function generateWords(number: number, words?: string[]): string {
   words.push(word);
   return generateWords(remainder, words);
 }
-
-export default toWords;

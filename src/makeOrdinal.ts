@@ -22,10 +22,8 @@ const ordinalLessThanThirteen: Record<string, string> = {
 /**
  * Converts a number-word into an ordinal number-word.
  * @example makeOrdinal('one') => 'first'
- * @param {string} words
- * @returns {string}
  */
-function makeOrdinal(words: string): string {
+export function makeOrdinal(words: string): string {
   // Ends with *00 (100, 1000, etc.) or *teen (13, 14, 15, 16, 17, 18, 19)
   if (ENDS_WITH_DOUBLE_ZERO_PATTERN.test(words) || ENDS_WITH_TEEN_PATTERN.test(words)) {
     return words + 'th';
@@ -44,5 +42,3 @@ function makeOrdinal(words: string): string {
 function replaceWithOrdinalVariant(match: string, numberWord: string): string {
   return ordinalLessThanThirteen[numberWord] ?? match;
 }
-
-export default makeOrdinal;

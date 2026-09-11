@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import toOrdinal from '../src/toOrdinal.ts';
+import { toOrdinal } from '../src/toOrdinal.ts';
 
 describe('toOrdinal', function () {
   const tests = [
