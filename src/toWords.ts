@@ -1,4 +1,3 @@
-import makeOrdinal from './makeOrdinal.ts';
 import isFinite from './isFinite.ts';
 import isSafeNumber from './isSafeNumber.ts';
 
@@ -52,10 +51,9 @@ const TENTHS_LESS_THAN_HUNDRED = [
  * If number is decimal, the decimals will be removed.
  * @example toWords(12) => 'twelve'
  * @param {number|string} number
- * @param {boolean} [asOrdinal] - Deprecated, use toWordsOrdinal() instead!
  * @returns {string}
  */
-function toWords(number: number | string, asOrdinal?: boolean): string {
+function toWords(number: number | string): string {
   let words: string;
   const num = parseInt(String(number), 10);
 
@@ -66,7 +64,7 @@ function toWords(number: number | string, asOrdinal?: boolean): string {
     throw new RangeError('Input is not a safe number, it’s either too large or too small.');
   }
   words = generateWords(num);
-  return asOrdinal ? makeOrdinal(words) : words;
+  return words;
 }
 
 function generateWords(number: number, words?: string[]): string {
