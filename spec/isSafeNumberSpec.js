@@ -1,7 +1,5 @@
-'use strict';
-
-const MAX_SAFE_INTEGER = require('../src/maxSafeInteger');
-const isSafeNumber = require('../src/isSafeNumber');
+import MAX_SAFE_INTEGER from '../src/maxSafeInteger.js';
+import isSafeNumber from '../src/isSafeNumber.js';
 
 describe('isSafeNumber', function () {
   it('should return true if input is a number between -MAX_SAFE_INTEGER and MAX_SAFE_INTEGER (including)', function () {

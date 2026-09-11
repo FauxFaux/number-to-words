@@ -1,9 +1,7 @@
-'use strict';
-
-const MAX_SAFE_INTEGER = require('./maxSafeInteger');
+import MAX_SAFE_INTEGER from './maxSafeInteger.js';
 
 function isSafeNumber(value) {
   return typeof value === 'number' && Math.abs(value) <= MAX_SAFE_INTEGER;
 }
 
-module.exports = isSafeNumber;
+export default isSafeNumber;

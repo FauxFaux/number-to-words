@@ -1,5 +1,3 @@
-'use strict';
-
 const ENDS_WITH_DOUBLE_ZERO_PATTERN = /(hundred|thousand|(m|b|tr|quadr)illion)$/;
 const ENDS_WITH_TEEN_PATTERN = /teen$/;
 const ENDS_WITH_Y_PATTERN = /y$/;
@@ -47,4 +45,4 @@ function replaceWithOrdinalVariant(match, numberWord) {
   return ordinalLessThanThirteen[numberWord];
 }
 
-module.exports = makeOrdinal;
+export default makeOrdinal;

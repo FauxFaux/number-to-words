@@ -1,6 +1,4 @@
-'use strict';
-
-const index = require('../src');
+import * as index from '../src/index.js';
 
 describe('index', function () {
   it('should expose a toOrdinal method', function () {

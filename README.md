@@ -17,7 +17,7 @@ Converts an integer into a string with an ordinal postfix.
 If number is decimal, the decimals will be removed.
 
 ```js
-var converter = require('number-to-words');
+import * as converter from 'number-to-words';
 converter.toOrdinal(21); // => “21st”
 ```
 
@@ -27,7 +27,7 @@ Converts an integer into words.
 If number is decimal, the decimals will be removed.
 
 ```js
-var converter = require('number-to-words');
+import * as converter from 'number-to-words';
 converter.toWords(13); // => “thirteen”
 
 // Decimal numbers:
@@ -46,7 +46,7 @@ Converts a number into ordinal words.
 If number is decimal, the decimals will be removed.
 
 ```js
-var converter = require('number-to-words');
+import * as converter from 'number-to-words';
 converter.toWordsOrdinal(21); // => “twenty-first”
 ```
 

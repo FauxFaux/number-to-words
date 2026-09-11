@@ -1,6 +1,4 @@
-'use strict';
-
-const toOrdinal = require('../src/toOrdinal');
+import toOrdinal from '../src/toOrdinal.js';
 const MAX_SAFE_INTEGER = 9007199254740991;
 
 describe('toOrdinal', function () {

@@ -1,5 +1,3 @@
-'use strict';
-
 // Simplified https://gist.github.com/marlun78/885eb0021e980c6ce0fb
 function isFinite(value) {
   return !(
@@ -10,4 +8,4 @@ function isFinite(value) {
   );
 }
 
-module.exports = isFinite;
+export default isFinite;

@@ -1,7 +1,5 @@
-'use strict';
-
 const MAX_SAFE_INTEGER = 9007199254740991;
-const toWords = require('../src/toWords');
+import toWords from '../src/toWords.js';
 
 describe('toWords', function () {
   const tests = [

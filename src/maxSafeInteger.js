@@ -1,5 +1,3 @@
-'use strict';
-
 const MAX_SAFE_INTEGER = 9007199254740991;
 
-module.exports = MAX_SAFE_INTEGER;
+export default MAX_SAFE_INTEGER;

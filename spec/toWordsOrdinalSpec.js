@@ -1,6 +1,4 @@
-'use strict';
-
-const toWordsOrdinal = require('../src/toWordsOrdinal');
+import toWordsOrdinal from '../src/toWordsOrdinal.js';
 
 describe('toWordsOrdinal', function () {
   const tests = [

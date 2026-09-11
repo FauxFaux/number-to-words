@@ -1,7 +1,5 @@
-'use strict';
-
-const makeOrdinal = require('./makeOrdinal');
-const toWords = require('./toWords');
+import makeOrdinal from './makeOrdinal.js';
+import toWords from './toWords.js';
 
 /**
  * Converts a number into ordinal words.
@@ -14,4 +12,4 @@ function toWordsOrdinal(number) {
   return makeOrdinal(words);
 }
 
-module.exports = toWordsOrdinal;
+export default toWordsOrdinal;

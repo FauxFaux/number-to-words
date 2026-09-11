@@ -1,7 +1,5 @@
-'use strict';
-
-const isFinite = require('./isFinite');
-const isSafeNumber = require('./isSafeNumber');
+import isFinite from './isFinite.js';
+import isSafeNumber from './isSafeNumber.js';
 
 /**
  * Converts an integer into a string with an ordinal postfix.
@@ -37,4 +35,4 @@ function toOrdinal(number) {
   );
 }
 
-module.exports = toOrdinal;
+export default toOrdinal;

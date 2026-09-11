@@ -1,8 +1,6 @@
-'use strict';
-
-const makeOrdinal = require('./makeOrdinal');
-const isFinite = require('./isFinite');
-const isSafeNumber = require('./isSafeNumber');
+import makeOrdinal from './makeOrdinal.js';
+import isFinite from './isFinite.js';
+import isSafeNumber from './isSafeNumber.js';
 
 const TEN = 10;
 const ONE_HUNDRED = 100;
@@ -125,4 +123,4 @@ function generateWords(number) {
   return generateWords(remainder, words);
 }
 
-module.exports = toWords;
+export default toWords;
